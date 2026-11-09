@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rate your recent purchase - HegmaKart</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 20px; color: #1e293b; }
+    .container { max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; text-align: center; }
+    .header { background: #1e40af; padding: 30px 24px; color: #ffffff; }
+    .header h1 { margin: 0 0 6px 0; font-size: 22px; font-weight: 700; }
+    .header p { margin: 0; font-size: 14px; opacity: 0.9; }
+    .content { padding: 36px 28px; }
+    .product-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin: 24px 0; display: inline-block; width: 85%; box-sizing: border-box; }
+    .product-img { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 12px; background: #ffffff; }
+    .product-name { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+    .stars { font-size: 24px; color: #f59e0b; margin: 12px 0 18px 0; letter-spacing: 4px; }
+    .cta-btn { display: inline-block; background-color: #2563eb; color: #ffffff !important; font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 4px rgba(37,99,235,0.25); }
+    .badge { display: inline-block; font-size: 11px; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; padding: 3px 10px; border-radius: 12px; font-weight: 600; margin-bottom: 16px; }
+    .security-note { font-size: 12px; color: #64748b; margin-top: 24px; line-height: 1.5; }
+    .footer { background: #f8fafc; padding: 20px; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>HegmaKart Verified Reviews</h1>
+      <p>Order #{{ order_number }} was delivered</p>
+    </div>
+
+    <div class="content">
+      <div class="badge">🛡️ Verified Buyer Invitation</div>
+      <h2 style="font-size: 20px; margin: 0 0 10px 0; color: #0f172a;">How was your experience?</h2>
+      <p style="font-size: 14px; color: #64748b; margin: 0 auto; max-width: 420px; line-height: 1.5;">
+        Your feedback helps fellow dental professionals make informed clinical purchasing decisions.
+      </p>
+
+      <div class="product-card">
+        {% if product_thumbnail %}
+        <img src="{{ product_thumbnail }}" alt="{{ product_name }}" class="product-img">
+        {% endif %}
+        <div class="product-name">{{ product_name }}</div>
+        <div class="stars">★★★★★</div>
+        <a href="{{ review_url }}" class="cta-btn">Write Your Review</a>
+      </div>
+
+      <div class="security-note">
+        This is a cryptographically signed review link valid for 30 days.<br>
+        No password or login required. You can choose to post anonymously or with your full name.
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; {{ current_year or 2026 }} HegmaKart Healthcare & Dental Solutions.</p>
+    </div>
+  </div>
+</body>
+</html>
